@@ -6,7 +6,7 @@ import './App.css';
 import Dashboard from "./Pages/Dashboard";
 import TweetsPage from "./Pages/TweetsPage";
 import MoviePage from "./Pages/MoviePage";
-import Dashboard from "./Pages/MusicPage";
+import MusicPage from "./Pages/MusicPage";
 
 
 /*
