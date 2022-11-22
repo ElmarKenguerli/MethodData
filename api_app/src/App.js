@@ -1,14 +1,27 @@
 import React, { Component }  from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 
+//importing pages
+import TweetsPage from "./Pages/TweetsPage";
+import MoviePage from "./Pages/MoviePage";
+import MusicPage from "./Pages/MusicPage";
+
+
+/*
+  React app. Provides navigation across pages via react-router-dom
+*/
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello Test</p>
-      </header>
-    </div>
+    <Router>    
+      <Routes>
+          <Route exact path="/" element={<Dashboard/>} />
+          <Route path="/TweetsPage" element ={<TweetsPage/>}/>
+          <Route path="/MoviePage" element={<MoviePage/>} /> 
+          <Route path="/MusicPage" element={<MusicPage/>} />
+          
+      </Routes>
+  </Router>
   );
 }
 
