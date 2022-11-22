@@ -1,11 +1,12 @@
-import React, { Component }  from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 
 //importing pages
+import Dashboard from "./Pages/Dashboard";
 import TweetsPage from "./Pages/TweetsPage";
 import MoviePage from "./Pages/MoviePage";
-import MusicPage from "./Pages/MusicPage";
+import Dashboard from "./Pages/MusicPage";
 
 
 /*
