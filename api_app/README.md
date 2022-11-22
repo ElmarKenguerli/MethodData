@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+View this web app in your browser: https://methoddataproject.web.app/
 
 ## Available Scripts
 
