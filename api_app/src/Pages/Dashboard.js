@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import '../App.css';
 
 export const Dashboard = () => {
 
 
     return(
-        <div>
-            <h1>Dashboard</h1>
+        <div className="App">
+            <h1>Dashboard nice</h1>
         </div>
     )
 
