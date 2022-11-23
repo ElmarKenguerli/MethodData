@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
+//Material UI imports
+
 
 export const ImdbPage = () => {
 
