@@ -6,6 +6,7 @@ export const MusicPage = () => {
     
     return(
         <>
+        <p> music</p>
         </>
     )
 

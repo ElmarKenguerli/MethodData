@@ -6,6 +6,7 @@ export const TweetsPage = () => {
     
     return(
         <>
+        <p> Tweets</p>
         </>
     )
 
