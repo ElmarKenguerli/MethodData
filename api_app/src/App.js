@@ -5,7 +5,7 @@ import './App.css';
 //importing pages
 import Dashboard from "./Pages/Dashboard";
 import TweetsPage from "./Pages/TweetsPage";
-import MoviePage from "./Pages/MoviePage";
+import MoviePage from "./Pages/ImdbPage";
 import MusicPage from "./Pages/MusicPage";
 
 

@@ -6,7 +6,7 @@ export const ImdbPage = () => {
 
     return(
         <div>
-            <h1>Dashboard</h1>
+            <h1>Movie Page</h1>
         </div>
     )
 

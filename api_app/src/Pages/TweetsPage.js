@@ -11,3 +11,4 @@ export const TweetsPage = () => {
 
 }
 
+export default TweetsPage;
