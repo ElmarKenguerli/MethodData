@@ -8,8 +8,10 @@ import {
     Box,
     Button,
     TextField,
-    Link
+    Link,
+    MenuItem 
 } from '@mui/material';
+import Select from '@mui/material/Select';
 export const MusicPage = () => {
 
     //params to link to spotify authentication page
@@ -21,6 +23,12 @@ export const MusicPage = () => {
 
     const [token, setToken] = useState("")
     
+    const [songNum, setSongNum] = useState("1");
+
+    const handleChange = (e) => {
+        setSongNum(e.target.value);
+    };
+
     /*  Check for hash or token in local storage
      *  If not, extract token from hash string
      */
@@ -71,8 +79,8 @@ export const MusicPage = () => {
 
     /*  Display the artists details using map function
      */
-    const renderDetails = () => {
-        return tracks.slice(0, 5).map(track => (
+    const renderSongDetails = () => {
+        return tracks.slice(0, songNum).map(track => (
             <div key={track.id}>
 
                             
@@ -110,11 +118,26 @@ export const MusicPage = () => {
 
             <Box className= "searchBar">
                 <TextField placeholder="Search for Song" fullWidth id="fullWidth" onChange={e => setSearch(e.target.value)} />
-                <Button size="large" variant="contained" style ={{padding: "15px", margin: "15px", width : "300px"}} onClick={searchArtists}>Search Now</Button>
+                <div style ={{textAlign: "right"}}>
+                    <div style ={{textAlign: "center"}}>
+                        <Button size="large" variant="contained" sx ={{padding: "15px", margin: "15px", width : "300px"}} onClick={searchArtists}>Search Now</Button>
+                    </div>
+                    <h3>Number of Songs to View  &nbsp;&nbsp;&nbsp;&nbsp;
+                        <Select
+                            value={songNum}
+                            label="Select number of Tracks to display"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={1}>1</MenuItem>
+                            <MenuItem value={5}>5</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                        </Select>
+                    </h3>
+                </div>
             </Box>
 
             <Box>
-                {renderDetails()}
+                {renderSongDetails()}
                 
                
             </Box>
