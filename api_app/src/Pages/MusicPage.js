@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import axios from 'axios';
+
 //Material UI imports
 import {
 
@@ -17,7 +19,7 @@ export const MusicPage = () => {
     
 
     const [token, setToken] = useState("")
-
+    
     /*  Check for hash or token in local storage
      *  If not, extract token from hash string
      */
@@ -42,6 +44,41 @@ export const MusicPage = () => {
         setToken("")
         window.localStorage.removeItem("token")
     }
+
+    const [search, setSearch] = useState("")
+    const [artists, setArtists] = useState([])
+
+    /*  Request SPotify API endpoint 
+     *  Set object to artist variable
+     */
+    const searchArtists = async (e) => {
+        e.preventDefault()
+        const {data} = await axios.get("https://api.spotify.com/v1/search", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            params: {
+                q: search,
+                type: "artist"
+            }
+        })
+    
+        setArtists(data.artists.items)
+       
+        console.log(artists)
+    }
+
+    /*  Display the artists details using map function
+     */
+    const renderDetails = () => {
+        return artists.map(artist => (
+            <div key={artist.id}>
+                {artist.images.length ? <img width={"10%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
+                {artist.name}
+            </div>
+        ))
+    }
+
     return(
         <Box className="App">
         
@@ -57,7 +94,12 @@ export const MusicPage = () => {
             </Box>
 
             <Box className= "searchBar">
-                <TextField fullWidth id="fullWidth" />
+                <TextField placeholder="Search for Song" fullWidth id="fullWidth" onChange={e => setSearch(e.target.value)} />
+                <Button size="large" variant="contained" style ={{padding: "15px", margin: "15px", width : "300px"}} onClick={searchArtists}>Search Now</Button>
+            </Box>
+
+            <Box>
+                {renderDetails()}
             </Box>
         </Box>
     )
