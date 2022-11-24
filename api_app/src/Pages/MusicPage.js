@@ -89,9 +89,10 @@ export const MusicPage = () => {
 
                 <h2>Song Name: {track.name}</h2>
 
-                <h2>{track.artists.map(artist => (
+                <h2>Artist(s): 
+                    {track.artists.map(artist => (
                     <div key={artist.id}>               
-                        Artist(s): {artist.name}
+                       {artist.name}
                     </div>
                 ))}</h2>
 
