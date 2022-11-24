@@ -7,7 +7,8 @@ import {
 
     Box,
     Button,
-    TextField
+    TextField,
+    Link
 } from '@mui/material';
 export const MusicPage = () => {
 
@@ -46,8 +47,8 @@ export const MusicPage = () => {
     }
 
     const [search, setSearch] = useState("")
-    const [artists, setArtists] = useState([])
-
+    const [tracks, setTracks] = useState([])
+    const [albumName, setAlbum] = useState([])
     /*  Request SPotify API endpoint 
      *  Set object to artist variable
      */
@@ -59,22 +60,36 @@ export const MusicPage = () => {
             },
             params: {
                 q: search,
-                type: "artist"
+                type: "track"
             }
         })
     
-        setArtists(data.artists.items)
+        setTracks(data.tracks.items)
        
-        console.log(artists)
+        console.log(tracks)
     }
 
     /*  Display the artists details using map function
      */
     const renderDetails = () => {
-        return artists.map(artist => (
-            <div key={artist.id}>
-                {artist.images.length ? <img width={"10%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
-                {artist.name}
+        return tracks.slice(0, 5).map(track => (
+            <div key={track.id}>
+
+                            
+                <img width={"20%"} src={track.album.images[0].url} alt=""/>
+                 
+
+                <h2>Song Name: {track.name}</h2>
+
+                <h2>{track.artists.map(artist => (
+                    <div key={artist.id}>               
+                        Artist(s): {artist.name}
+                    </div>
+                ))}</h2>
+
+                <h2>Album Name: {track.album.name}</h2>
+                <h2>Preview Link: <Link href={track.preview_url}>Click Here To Play</Link></h2>
+                <br></br><br></br>
             </div>
         ))
     }
@@ -100,6 +115,8 @@ export const MusicPage = () => {
 
             <Box>
                 {renderDetails()}
+                
+               
             </Box>
         </Box>
     )
