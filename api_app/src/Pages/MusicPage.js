@@ -70,7 +70,10 @@ export const MusicPage = () => {
                 q: search,
                 type: "track"
             }
-        })
+        }).catch((err) => {
+
+            console.log(err);           
+        });
 
         setTracks(data.tracks.items)
 
