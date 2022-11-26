@@ -8,6 +8,12 @@
   margin: 20px;
 
 }
+.backBtn{
+  text-align: left;
+  margin: 20px;
+  
+
+}
 
 h1{
   text-align: center;
@@ -17,4 +23,14 @@ h1{
 .searchBar{
   margin-Left: 200px;
   margin-Right: 200px
+}
+
+.rightFlex{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.leftFlex{
+  display: flex;
+  justify-content: flex-start;
 }
