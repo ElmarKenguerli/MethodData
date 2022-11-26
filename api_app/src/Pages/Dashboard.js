@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import '../App.css';
 //Material UI imports
 import Button from '@mui/material/Button';
@@ -13,31 +13,31 @@ export const Dashboard = () => {
     let navigate = useNavigate();
     //declaring list of button components for the dashboard
     const buttons = [
-        <Button key="tweets" 
-                onClick={() => navigate("/TweetsPage")} 
-                startIcon={<TwitterIcon 
-                style={{ fontSize: "30px" }}/>} >Let's View Tweets
+        <Button key="tweets"
+            onClick={() => navigate("/TweetsPage")}
+            startIcon={<TwitterIcon
+                style={{ fontSize: "30px" }} />} >Let's View Tweets
         </Button>,
-        <Button key="music" 
-                onClick={() => navigate("/MusicPage")} 
-                startIcon={<LibraryMusicIcon 
-                style={{ fontSize: "30px" }}/>}>Let's Look For Music
+        <Button key="music"
+            onClick={() => navigate("/MusicPage")}
+            startIcon={<LibraryMusicIcon
+                style={{ fontSize: "30px" }} />}>Let's Look For Music
         </Button>,
-        <Button key="movies" 
-                onClick={() => navigate("/MoviePage")} 
-                startIcon={<LiveTvIcon 
-                style={{ fontSize: "30px" }}/>}>Let's Find Some Movies
+        <Button key="movies"
+            onClick={() => navigate("/MoviePage")}
+            startIcon={<LiveTvIcon
+                style={{ fontSize: "30px" }} />}>Let's Find Some Movies
         </Button>,
-      ];
+    ];
 
-    return(
+    return (
         //Box container for our view
         <Box
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-               
+
             }}
         >
 
@@ -46,7 +46,7 @@ export const Dashboard = () => {
             </ButtonGroup>
         </Box>
     )
-    
+
 
 }
 
