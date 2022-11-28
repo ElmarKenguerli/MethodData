@@ -114,7 +114,6 @@ export const MusicPage = () => {
             {/* Redirect to Spotify Login to get hash => access token.
               * Only renders LogOut button if there is a token present.
               */}
-
             <Box className="SpotifyLogin">
                 {!token ?
                     <Button size="large" variant="contained" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
@@ -124,7 +123,7 @@ export const MusicPage = () => {
             </Box>
 
             <Box className="searchBar">
-                <TextField placeholder="Search for Song" fullWidth id="fullWidth" onChange={e => setSearch(e.target.value)} />
+                <TextField placeholder="Search for Songs" fullWidth id="fullWidth" onChange={e => setSearch(e.target.value)} />
                 <Button size="large" variant="contained" sx={{ padding: "15px", margin: "15px", width: "300px" }} onClick={searchArtists}>Search Now</Button>
 
                 <div style={{ textAlign: "right" }}>

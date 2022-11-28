@@ -8,9 +8,6 @@ import {
     Button,
     TextField,
 } from '@mui/material';
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 
 export const ImdbPage = () => {
     let navigate = useNavigate();
@@ -53,7 +50,7 @@ export const ImdbPage = () => {
             <h1>IMDB Lookup</h1>
 
             <Box className="searchBar">
-                <TextField placeholder="Search for Song" fullWidth id="fullWidth" onChange={e => setSearch(e.target.value)} />
+                <TextField placeholder="Search for Movie" fullWidth id="fullWidth" onChange={e => setSearch(e.target.value)} />
                 <Button size="large" variant="contained" onClick={getMovies} sx={{ padding: "15px", margin: "15px", width: "300px" }} >Search Now</Button>
                 
 
