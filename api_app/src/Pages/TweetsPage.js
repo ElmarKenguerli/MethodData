@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import Twitter from 'twitter'
 //Material UI imports
 import {
     Box,
