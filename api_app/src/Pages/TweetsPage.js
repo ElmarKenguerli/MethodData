@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-import MovieList from '../Components/MovieList';
+import Twitter from 'twitter'
 //Material UI imports
 import {
     Box,
@@ -14,6 +13,8 @@ export const TweetsPage = () => {
     
     const [search, setSearch] = useState("");
     const [tweets, setTweets] = useState([]);
+
+  
 
     const getTweets = () => {
         
