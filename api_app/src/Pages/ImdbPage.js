@@ -16,18 +16,26 @@ export const ImdbPage = () => {
     let navigate = useNavigate();
     
     const [search, setSearch] = useState("");
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState({});
+    const [render, setRender] = useState(false);
 
     const getMovies = async () => {
-        const url = `http://www.omdbapi.com/?s=${search}&apikey=3e7be19e`;
-        await axios.get(url)
-        .then(res => res.data.Search)
+        const url = `http://www.omdbapi.com/?t=${search}&apikey=3e7be19e`;
+        await axios.get(url, {
+            
+            params: {
+                type: "movie"
+            }
+        })
+        .then(res => res.data)
         .then(res => {
             
-            if (res) {
+            if (res.Title) {
+                setRender(true);
                 setMovies(res);
                 console.log(res);
             }else{
+                setRender(false);
                 setMovies([]);
                 console.log("Movie Not Found");
             }})
@@ -51,8 +59,12 @@ export const ImdbPage = () => {
 
             </Box>
 
+            {/* Conditionally Render Movies */}
             <Box style={{ marginTop: "20px" }}>
-                <MovieList movies={movies} />
+                {render?
+                    <MovieList movies={movies} />
+                    : <></>}
+                
                 
             </Box>
         </Box>
